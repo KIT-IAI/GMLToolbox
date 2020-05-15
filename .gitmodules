@@ -6,7 +6,7 @@
 	url = ../Diagramm.git
 [submodule "GML-Toolbox"]
 	path = GML-Toolbox
-	url = ../gml-toolbox.git
+	url = ../gml-toolbox-opensource.git
 [submodule "gmltoolbox-sampleplugin"]
 	path = gmltoolbox-sampleplugin
 	url = ../gmltoolbox-sampleplugin.git
