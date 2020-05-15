@@ -1,0 +1,12 @@
+[submodule "gps"]
+	path = gps
+	url = ../gps.git
+[submodule "Diagramm"]
+	path = Diagramm
+	url = ../Diagramm.git
+[submodule "GML-Toolbox"]
+	path = GML-Toolbox
+	url = ../gml-toolbox.git
+[submodule "gmltoolbox-sampleplugin"]
+	path = gmltoolbox-sampleplugin
+	url = ../gmltoolbox-sampleplugin.git

@@ -1,0 +1,46 @@
+image: buildtools2017:1912
+
+variables:
+    GIT_SUBMODULE_STRATEGY: none
+
+build:
+    tags:
+        - windows-docker
+
+    script:
+        - git config --system core.longpaths true
+        - git submodule sync --recursive
+        - git submodule update --init --recursive -f
+        - echo $env:CI_JOB_ID
+
+        - msbuild GML-ToolboxApp.sln /property:Configuration=Release /property:Platform=x64 /m /t:Restore /t:Build /v:q
+
+        - Compress-Archive -Path .\GML-Toolbox\AppConfig .\x64\Release\AppConfig.zip
+        - C:\TOOLS\jfrog.exe rt config default --url="$env:ARTIFACTORY_URL" --user="$env:ARTIFACTORY_USER" --apikey="$env:ARTIFACTORY_APIKEY"
+        - C:\TOOLS\jfrog.exe rt upload "x64\\Release\\*.exe" "geoinfosys/$env:CI_PROJECT_NAME/"
+        - C:\TOOLS\jfrog.exe rt upload "x64\\Release\\*.dll" "geoinfosys/$env:CI_PROJECT_NAME/"
+        - C:\TOOLS\jfrog.exe rt upload "x64\\Release\\*.zip" "geoinfosys/$env:CI_PROJECT_NAME/"
+
+        - net use "Z:" "\\iai-fileserv1.iai.kit.edu\3w\VR-Web\IFC-Tools\[AutoBuild]\GML-Toolbox" /user:"$env:SMB_USER" "$env:SMB_PASSWORD"
+        - xcopy "x64\Release\*.dll" "Z:\" /S /Y
+        - xcopy "x64\Release\*.exe" "Z:\" /S /Y
+        - xcopy "GML-Toolbox\AppConfig" "Z:\" /S /Y
+        - net use "Z:" /delete /yes
+
+        - msbuild GML-ToolboxApp.sln /property:Configuration=Demo /property:Platform=x64 /m /t:Restore /t:Build /v:q
+
+        - C:\TOOLS\jfrog.exe rt config default --url="$env:ARTIFACTORY_URL" --user="$env:ARTIFACTORY_USER" --apikey="$env:ARTIFACTORY_APIKEY"
+        - C:\TOOLS\jfrog.exe rt upload "x64\\Demo\\*.exe" "geoinfosys/$env:CI_PROJECT_NAME/"
+        - C:\TOOLS\jfrog.exe rt upload "x64\\Demo\\*.dll" "geoinfosys/$env:CI_PROJECT_NAME/"
+        - C:\TOOLS\jfrog.exe rt upload "x64\\Release\\*.zip" "geoinfosys/$env:CI_PROJECT_NAME/"
+
+        - net use "Z:" "\\iai-fileserv1.iai.kit.edu\3w\VR-Web\IFC-Tools\[AutoBuild]\GML-Toolbox_Freeware" /user:"$env:SMB_USER" "$env:SMB_PASSWORD"
+        - xcopy "x64\Demo\*.dll" "Z:\" /S /Y
+        - xcopy "x64\Demo\*.exe" "Z:\" /S /Y
+        - xcopy "GML-Toolbox\AppConfig" "Z:\" /S /Y
+        - net use "Z:" /delete /yes
+
+        - $recipients = @('<andreas.geiger@kit.edu>', '<joachim.benner@kit.edu>', '<alexandru.nichersu@kit.edu>')
+        - $body = "New versions available:`n" + "\\iai-fileserv1.iai.kit.edu\3w\VR-Web\IFC-Tools\[AutoBuild]\GML-Toolbox`n" + "\\iai-fileserv1.iai.kit.edu\3w\VR-Web\IFC-Tools\[AutoBuild]\GML-Toolbox_Freeware" + "`n`nBuild started by " + $env:GITLAB_USER_NAME
+        - Send-MailMessage -To $recipients -From "GitLAB Build Server<iai-geo-0001@kit.edu>" -Subject "GML-Toolbox build" -SmtpServer "smtp.kit.edu" -Body $body
+
