@@ -28,6 +28,6 @@ build:
         - net use "Z:" /delete /yes
 
         - $recipients = @('<andreas.geiger@kit.edu>', '<joachim.benner@kit.edu>', '<alexandru.nichersu@kit.edu>', 'franz-josef.kaiser@partner.kit.edu')
-        - $body = "New versions available:`n" + "\\iai-fileserv1.iai.kit.edu\3w\VR-Web\IFC-Tools\[AutoBuild]\GML-Toolbox`n" + "\\iai-fileserv1.iai.kit.edu\3w\VR-Web\IFC-Tools\[AutoBuild]\GML-Toolbox_Freeware" + "`n`nBuild started by " + $env:GITLAB_USER_NAME
+        - $body = "New versions available:`n" + "\\iai-fileserv1.iai.kit.edu\3w\VR-Web\IFC-Tools\[AutoBuild]\GML-Toolbox-opensource`n" + "`n`nBuild started by " + $env:GITLAB_USER_NAME
         - Send-MailMessage -To $recipients -From "GitLAB Build Server<iai-geo-0001@kit.edu>" -Subject "GML-Toolbox build" -SmtpServer "smtp.kit.edu" -Body $body
 
