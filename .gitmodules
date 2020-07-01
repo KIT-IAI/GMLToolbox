@@ -1,9 +1,9 @@
-[submodule "gps"]
-	path = gps
-	url = ../gps.git
 [submodule "Diagramm"]
 	path = Diagramm
-	url = ../Diagramm.git
+	url = ../GMLToolbox-tsdiagram.git
+[submodule "gps"]
+	path = gps
+	url = ../GMLToolbox-gps.git
 [submodule "GML-Toolbox"]
 	path = GML-Toolbox
-	url = ../gml-toolbox-opensource.git
+	url = ../GMLToolbox-src.git
