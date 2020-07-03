@@ -8,6 +8,11 @@ build:
         - windows-docker
 
     script:
+        # Modify .gitmodules since some submodule repositories have different name locally
+        - git config --file .gitmodules submodule.Diagramm.url ../Diagramm.git
+        - git config --file .gitmodules submodule.gps.url ../gps.git
+        - git config --file .gitmodules submodule.GML-Toolbox.url ../GML-Toolbox-OpenSource.git
+
         - git config --system core.longpaths true
         - git submodule sync --recursive
         - git submodule update --init --recursive -f
