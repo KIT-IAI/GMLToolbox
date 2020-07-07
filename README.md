@@ -21,7 +21,7 @@ and migration of older standard-versions into newer ones.
 ## Links
 GML-Toolbox release version
 
-[GML-Toolbox user manual](GML-Toolbox/AppConfig/Benutzerhandbuch.pdf)
+[GML-Toolbox user manual](https://github.com/KIT-IAI/GMLToolbox-src/blob/master/AppConfig/Benutzerhandbuch.pdf)
 
 ## License
 The software runs under [Apache 2.0 license](LICENSE.md)
