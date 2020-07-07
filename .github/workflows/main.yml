@@ -69,14 +69,14 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: GMLToolbox
-        path: "x64\Release\*.dll"
+        path: "x64/Release/*.dll"
 
     - uses: actions/upload-artifact@v2
       with:
         name: GMLToolbox
-        path: "x64\Release\*.exe"
+        path: "x64/Release/*.exe"
 
     - uses: actions/upload-artifact@v2
       with:
         name: GMLToolbox
-        path: "GML-Toolbox\AppConfig"
+        path: "GML-Toolbox/AppConfig"
