@@ -64,17 +64,19 @@ jobs:
       run: |
         echo ${PWD}
         msbuild ./GML-ToolboxApp.sln /property:Configuration=Release /property:Platform=x64
-        
-    - name: Create the deployment files
-      run: |
-        mkdir .deploy
-        xcopy "x64\Release\*.dll" ".deploy\" /S /Y
-        xcopy "x64\Release\*.exe" ".deploy\" /S /Y
-        xcopy "GML-Toolbox\AppConfig" ".deploy\" /S /Y
-        Compress-Archive -Path ".\GML-Toolbox\AppConfig", ".deploy\*" .\GMLToolbox.zip
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: GMLToolbox.zip
-        path: GMLToolbox.zip
+        name: GMLToolbox
+        path: "x64\Release\*.dll"
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: GMLToolbox
+        path: "x64\Release\*.exe"
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: GMLToolbox
+        path: "GML-Toolbox\AppConfig"
