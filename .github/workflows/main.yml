@@ -34,6 +34,7 @@ jobs:
       with:
         repository: KIT-IAI/GMLToolbox-gps
         path: gps
+        ref: master
         ssh-key: ${{ secrets.SUBMODULE_SSH_KEY }}
         persist-credentials: false
       
