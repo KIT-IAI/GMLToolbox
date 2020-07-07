@@ -24,9 +24,18 @@ jobs:
       uses: warrenbuckley/Setup-MSBuild@v1
       
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+    - name: Checkout main repository
+      uses: actions/checkout@v2
       with:
-        submodules: 'true'
+        submodules: 'false'
+
+    - name: Checkout submodule gps
+      uses: actions/checkout@v2
+      with:
+        repository: KIT-IAI/GMLToolbox-gps
+        path: gps
+        ssh-key: ${{ secrets.SUBMODULE_SSH_KEY }}
+        persist-credentials: false
       
     # (Try to) build the project
     - name: Build the project using msbuild
