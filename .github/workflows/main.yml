@@ -32,11 +32,11 @@ jobs:
     - name: Checkout submodule gps
       uses: actions/checkout@v2
       with:
-        repository: KIT-IAI/GMLToolbox-gps
+        repository: KIT-IAI/GMLToolbox-gps.git
         path: gps
         ref: master
         # ssh-key: ${{ secrets.SUBMODULE_SSH_KEY }}
-        token: ${{ secrets.PAT }}
+        # token: ${{ secrets.PAT }}
         persist-credentials: false
       env:
         GIT_TRACE: 1
