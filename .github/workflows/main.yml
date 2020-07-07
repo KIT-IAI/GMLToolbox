@@ -38,10 +38,27 @@ jobs:
         # ssh-key: ${{ secrets.SUBMODULE_SSH_KEY }}
         token: ${{ secrets.CLONE_PAT }}
         persist-credentials: false
-      env:
-        GIT_TRACE: 1
-        GIT_CURL_VERBOSE: 1
-      
+
+    - name: Checkout submodule Diagramm
+      uses: actions/checkout@v2
+      with:
+        repository: KIT-IAI/GMLToolbox-tsdiagram.git
+        path: Diagramm
+        ref: master
+        # ssh-key: ${{ secrets.SUBMODULE_SSH_KEY }}
+        token: ${{ secrets.CLONE_PAT }}
+        persist-credentials: false
+
+    - name: Checkout submodule GMLToolbox-src
+      uses: actions/checkout@v2
+      with:
+        repository: KIT-IAI/GMLToolbox-src.git
+        path: GML-Toolbox
+        ref: master
+        # ssh-key: ${{ secrets.SUBMODULE_SSH_KEY }}
+        token: ${{ secrets.CLONE_PAT }}
+        persist-credentials: false
+
     # (Try to) build the project
     - name: Build the project using msbuild
       run: |
