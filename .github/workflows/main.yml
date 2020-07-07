@@ -73,3 +73,8 @@ jobs:
         xcopy "GML-Toolbox\AppConfig" ".deploy\" /S /Y
         Compress-Archive -Path ".\GML-Toolbox\AppConfig", ".deploy\*" .\GMLToolbox.zip
 
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: GMLToolbox.zip
+        path: GMLToolbox.zip
