@@ -1,3 +1,10 @@
+[![Last Commit](https://img.shields.io/github/last-commit/KIT-IAI/GMLToolbox?label=Last%20Commit)](https://github.com/KIT-IAI/GMLToolbox)
+[![Last Tag](https://img.shields.io/github/tag/KIT-IAI/GMLToolbox?label=Last%20Tag)](https://github.com/KIT-IAI/GMLToolbox)
+[![Last Release](https://img.shields.io/github/v/release/KIT-IAI/GMLToolbox?label=Last%20Release)](https://github.com/KIT-IAI/GMLToolbox/releases)
+[![Actions Status](https://github.com/KIT-IAI/GMLToolbox/workflows/CI/badge.svg)](https://github.com/KIT-IAI/GMLToolbox/actions)
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE.md)
+
 # GML-ToolboxApp
 
 ## Description
