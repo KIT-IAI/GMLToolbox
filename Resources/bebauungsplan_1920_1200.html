@@ -1,0 +1,690 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Interaktiver Bebauungsplan</title>
+<script type="text/javascript">
+	/* Author: Thomas Müller, Karlsruhe, August 2006*/ 
+
+
+// Deklarierung von globalen Variablen
+var scaleChoice = 6;
+var scaleFactor = new Array (0.05, 0.075, 0.1, 0.2, 0.5, 0.75, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20);
+var bplan;
+var navi;
+var ueberKarte;
+var svgElem;
+var fehlerWertAlt = -1;
+	
+var verlaufStart = false;
+var hervorhebenAktiv = false
+
+var x;
+var y;
+var weit;
+var hoch;
+var width;
+var height;
+
+var xcursor;
+var ycursor;
+
+var xcursor2;
+var dx;
+var nx;
+var ycursor2; 
+var dy;
+var ny;
+
+var rx;
+var ry;
+var objRecht;
+
+var xweit; 
+var yhoch; 
+var rxweit; 
+var ryhoch; 
+var rweit;
+var oweit;
+var ohoch;
+var orgViewBox;
+var uu=1;
+var style;
+var _class;
+var scalePanCursor;
+var scalePanPfeil;
+
+var attribute;
+
+
+// Initialisierungs-Funktion
+function init() 
+{	
+//	window.alert ( "Anfang" );
+	bplan = document.plan.getSVGDocument();
+	ueberKarte = document.plankl.getSVGDocument();
+	navi = document.navi.getSVGDocument();
+	svgElem=bplan.getElementById("karte");
+	objRecht = ueberKarte.getElementById("rechteck");
+	gCheckBox();	
+//	window.alert ( "viewBoxAuslesen" );
+ 	viewBoxAuslese()
+	variabSetzen()
+//	transformationDoc(1);
+//	kontrolle();
+//    window.alert ( "Ende Init" );
+}
+
+
+// Startvariablen setzten
+function variabSetzen() 
+{
+	xweit=x+weit+5;
+	yhoch=y+hoch+5;
+	oweit=x+weit;
+	ohoch=y+hoch;
+	ryhoch=ry+hoch;
+	rxweit=rx+weit;
+	scalePanCursor = weit / 20;
+	scalePanPfeil = 0.5*weit;	
+}
+	
+
+// Die Viewbox des Bebauuungsplan wird ausgelesen
+function viewBoxAuslese() 
+{
+	orgViewBox=svgElem.getAttribute("viewBox").split(' ');
+	x=parseFloat(orgViewBox[0]);
+	y=parseFloat(orgViewBox[1]);	
+	weit=parseFloat(orgViewBox[2]);
+	hoch=parseFloat(orgViewBox[3]);
+	
+	rx=parseFloat(orgViewBox[0]);
+	ry=parseFloat(orgViewBox[1]);
+	nx=parseFloat(orgViewBox[0]);
+	ny=parseFloat(orgViewBox[1]);
+	
+	objRecht.setAttribute ("x",nx);
+	objRecht.setAttribute ("y",ny);
+	objRecht.setAttribute ("width",weit);
+	objRecht.setAttribute ("height",hoch);	
+	
+//	window.alert( "viewBoxAuslesenEnde" + " " + nx.toString() +  " " + nx.toString() +  " " + weit.toString() + " " + hoch.toString() )
+}
+
+
+ // öffnet die Legende in einem neuen Fenster
+function legende()
+{	
+	attribute = window.open('test.htm','_blank', 'toolbar=no,width=400,height=200,resizable=yes');
+	attribute.setActive();
+}
+
+
+// Liest die aktuelle Position des Mauszeigers aus, für die Verschiebung des Rechtecks benötigt 
+function panStart(evt) 
+{
+//	window.alert ( "panStart" );
+	xcursor=parseFloat(evt.clientX);
+	ycursor=parseFloat(evt.clientY);
+	verlaufStart = true;
+}
+
+
+// Verschiebt das Rechteck durch die Mausbewegung
+function panVerlauf(evt) 
+{
+	if(scaleChoice>0)
+	{
+	if (verlaufStart == true)
+	{
+		
+//			nx=parseFloat(objRecht.getAttribute("x"));
+//			ny=parseFloat(objRecht.getAttribute("y"));	
+				
+	  	rx=parseFloat(objRecht.getAttribute("x"));
+  		xcursor2=parseFloat(evt.clientX);
+  		dx= (xcursor2-xcursor)*scalePanCursor;
+	   	nx= rx+dx;
+	
+		ry=parseFloat(objRecht.getAttribute("y"));
+  		ycursor2=parseFloat(evt.clientY);
+  	 	dy= (ycursor2-ycursor)*scalePanCursor;
+   		ny= ry+dy;
+	
+//		kontrolle();
+		objRecht.setAttribute("x",nx);
+		objRecht.setAttribute("y",ny);
+		
+		xcursor=xcursor2;
+		ycursor=ycursor2;
+	}
+	}
+	
+}
+
+ 
+// setzt die neue Werte in die Viewbox des Bebauungsplans ein	
+function panEnde() 
+{
+	var nViewBox = nx.toString() + " " + ny.toString() + " " + weit.toString() + " " + hoch.toString(); 
+	svgElem.setAttribute("viewBox",nViewBox);
+ 	verlaufStart=false;
+}
+
+
+// verschiebt einen Auschnitt des Bebauungsplans mit den Richtungspfeilen
+function setPfeil(n) 
+{
+//	window.alert( "setPfeil" )
+	
+	if(scaleChoice>0){
+		rx=parseFloat(objRecht.getAttribute("x"));
+		ry=parseFloat(objRecht.getAttribute("y"));
+		nx=parseFloat(objRecht.getAttribute("x"));
+		ny=parseFloat(objRecht.getAttribute("y"));	
+		switch (n){
+			case 1: ny= ry-scalePanPfeil; //*(20-scaleFactor[scaleChoice])); //Norden
+					break;
+			case 2: nx= rx+scalePanPfeil;//(*(20-scaleFactor[scaleChoice])); //Westen
+					break;
+			case 3: ny= ry+scalePanPfeil;//*(20-scaleFactor[scaleChoice])); //Süden
+					break;
+			case 4: nx= rx-scalePanPfeil;//*(20-scaleFactor[scaleChoice])); //Osten
+					break;
+			default: break;
+		}
+
+		kontrolle();
+	
+		panEnde();
+	}
+}
+
+
+// kontrolliert ob sich das Rechteck der Übersichtskarte im Bebauungsplans befindet und setzt es ggf. zurück
+function kontrolle() 
+{	
+/*	if ( nx < x )
+	{
+		nx = x;
+	}
+	
+    if ( nx + weit >= oweit )
+	{
+		nx = oweit - weit;
+	}
+	
+	if (ny < y)
+	{
+		ny=y;
+	}
+	
+	if (ny + hoch >= ohoch)
+	{
+		ny = ohoch - hoch;
+	}
+*/
+//    window.alert ( "kontrolle" );
+	objRecht.setAttribute("x",nx);
+	objRecht.setAttribute("y",ny);
+}
+
+// Die Funktion unterscheidet zwischen den +/- Button und setzt die Zoomstufe eins hoch oder runter
+function setDocGroesse(n)
+{
+	if(n==2){
+	scaleChoice=scaleChoice+1;
+	}
+	else{
+	scaleChoice=scaleChoice-1;
+	}
+
+	if(scaleChoice<0){
+	scaleChoice=0;
+	navi.getElementById("infoText2").getFirstChild().nodeValue = "nicht möglich";
+	}
+	else if(scaleChoice>17){
+	scaleChoice=17;
+	navi.getElementById("infoText2").getFirstChild().nodeValue = "nicht möglich";
+	}
+	else{
+	scaleChoice=scaleChoice;
+	}
+
+//	window.alert ( "viewBoxAuslesen" );
+	
+	transformationDoc(scaleFactor[scaleChoice]);
+}
+	
+// Die Funktion ermittelt die Größe des Ausschnitts und setzt diesen um
+function transformationDoc(uu)
+{
+//	window.alert ( "transformationDoc" );
+	zoomStufeAnzeige();
+	
+	rx    = parseFloat(objRecht.getAttribute("x"));
+	ry    = parseFloat(objRecht.getAttribute("y"));
+	width  = parseFloat(objRecht.getAttribute("width"));
+	height  = parseFloat(objRecht.getAttribute("height"));
+	
+	weit = orgViewBox[2]/uu;
+	hoch = orgViewBox[3]/uu;
+	nx   = rx + 0.5*(width-weit);
+	ny   = ry + 0.5*(height-hoch);
+	
+//	window.alert ( "width: "+width );
+  
+	kontrolle();
+	
+	objRecht.setAttribute ("width",weit);
+	objRecht.setAttribute ("height",hoch);
+
+  
+	panEnde();
+//	window.alert ( "transformationDocEnde" );
+}
+	
+//  Die Funktion ermittelt die Kurzinformation eines Kartenobjektes und hebt dieses hervor	
+function karteInfo(evt)
+{		
+    //window.alert ( "karteInfo" );
+//	var object=evt.getTarget();
+	var object=evt.target;
+	var gObject=object.parentNode.getAttribute('id');
+	var l=gObject.length
+	var name = gObject.substr ( 0, l - 5 );
+	
+	style = object.getAttribute ( "style" );
+	navi.getElementById("infoText2").firstChild.nodeValue = name;
+	object.setAttribute("style", ";stroke:red;stroke-width:3");	
+}
+
+function karteInfoHatch(evt)
+{		
+//    window.alert ( "karteInfoHatch" );
+//	var object=evt.getTarget();
+	var object=evt.target;
+	var gObject=object.parentNode.getAttribute('id');
+	var l=gObject.length
+	var name = gObject.substr ( 0, l - 5 );
+
+	navi.getElementById("infoText2").firstChild.nodeValue = name;
+	
+              style = object.getAttribute ( "style" );
+               styleNew = style + ";fill:red";
+//               styleNew =  ";stroke:red;stroke-width:3";
+	object.setAttribute("style", styleNew);	
+}
+
+function karteOutHatch(evt)
+{
+//       var object=evt.getTarget();
+       var object=evt.target;
+       object.setAttribute ( "style", style );		
+       clearInfo();	
+}
+
+
+// Setzt die hervorgehobenen Kartenobjekte zurück 
+function karteOut(evt)
+{
+//	var object=evt.getTarget();
+    var object=evt.target;
+
+//
+   object.setAttribute ( "style", style );	
+//	object.getStyle().removeProperty("stroke");
+//	object.getStyle().removeProperty("stroke-width");
+	clearInfo();
+	
+}
+
+
+// Blendet die Ebenen ein oder aus
+function einAus(a)
+{
+//    window.alert ( "einAus" );
+	var ebeneId, obj, wert;
+	
+	ebeneId = a + "_RA";
+	obj = bplan.getElementById( ebeneId );
+	if ( obj != null )
+	{
+   	  wert =obj.getAttribute("display");
+	  einAusEbene ( obj, wert );
+	}
+	
+	ebeneId = a + "_RE_0";
+	obj = bplan.getElementById( ebeneId );
+	if ( obj != null )
+	{
+		wert =obj.getAttribute("display");
+		einAusEbene ( obj, wert );
+	}
+	
+	ebeneId = a + "_FL_0";
+	obj = bplan.getElementById( ebeneId );
+	if ( obj != null )
+	{
+		wert =obj.getAttribute("display");
+		einAusEbene ( obj, wert );
+	}
+	
+	ebeneId = a + "_FL_1";
+	obj = bplan.getElementById( ebeneId );
+	if ( obj != null )
+	{
+		wert =obj.getAttribute("display");
+		einAusEbene ( obj, wert );
+	}
+	
+	ebeneId = a + "_FL_2";
+	obj = bplan.getElementById( ebeneId );
+	if ( obj != null )
+	{
+		wert =obj.getAttribute("display");
+		einAusEbene ( obj, wert );
+	}
+	
+	ebeneId = a + "_LI_0";
+	obj = bplan.getElementById( ebeneId );
+	if ( obj != null )
+	{
+		wert =obj.getAttribute("display");
+		einAusEbene ( obj, wert );
+	}
+	
+	ebeneId = a + "_LI_1";
+	obj = bplan.getElementById( ebeneId );
+	if ( obj != null )
+	{
+		wert =obj.getAttribute("display");
+		einAusEbene ( obj, wert );
+	}
+	
+	ebeneId = a + "_LI_2";
+	obj = bplan.getElementById( ebeneId );
+	if ( obj != null )
+	{
+		wert =obj.getAttribute("display");
+		einAusEbene ( obj, wert );
+	}
+	
+	
+	ebeneId = a + "_PO_0";
+	obj = bplan.getElementById( ebeneId );
+	if ( obj != null )
+	{
+		wert =obj.getAttribute("display");
+		einAusEbene ( obj, wert );
+	}
+	
+	ebeneId = a + "_PO_1";
+	obj = bplan.getElementById( ebeneId );
+	if ( obj != null )
+	{
+		wert =obj.getAttribute("display");
+		einAusEbene ( obj, wert );
+	}
+	
+	ebeneId = a + "_PO_2";
+	obj = bplan.getElementById( ebeneId );
+	if ( obj != null )
+	{
+		wert =obj.getAttribute("display");
+		einAusEbene ( obj, wert );
+	}
+	
+	
+}
+
+function einAusEbene ( obj, wert)
+{
+	if (wert=="none")
+	{
+		obj.setAttribute("display","inline");
+	}
+	else
+	{
+		obj.setAttribute("display","none");
+	}
+
+}
+
+
+// setzt verändert die Zoomstufe in der entsprechenden Informationsleiste 
+function zoomStufeAnzeige()
+{
+	var scaleAnzeige;
+	scaleAnzeige = scaleFactor[scaleChoice] * 100;
+
+	var objXX = navi.getElementById("infoText1").firstChild
+	
+	navi.getElementById("infoText1").firstChild.nodeValue = scaleAnzeige.toString()+"%"
+//	window.alert ( "zoomStufeAnzeigeB" );
+	 
+	scalePanCursor = weit / (20*scaleFactor[scaleChoice]);
+	scalePanPfeil  = 0.5*weit / scaleFactor[scaleChoice];		
+ //   window.alert ( "zoomStufeAnzeigeEnde" ); 
+}
+
+
+// Löscht die Kurzinformation in der entsprechenden Informationsleiste
+function clearInfo()
+{
+//	navi.getElementById("infoText2").firstChild.setData(" ")
+	navi.getElementById("infoText2").firstChild.nodeValue = " "
+}
+
+
+// setzt sie Kurzinformation des Rechtecks der Übersichtskarte in die Informationsleiste
+function rechteckInfo()
+{	
+	if(scaleChoice>0){
+		navi.getElementById("infoText2").firstChild.nodeValue = "klicken & ziehen"
+	}
+}
+
+
+// löscht die Kurzinformation des Rechtecks der Übersichtskarte in der Informationsleiste und ruft wenn nötig die Funktion panEnde() auf
+function rechteckOut()
+{
+		if(scaleChoice>0){
+		clearInfo();
+		if (verlaufStart==true)
+			panEnde();
+	}
+}
+
+
+//  Die Funktion ermittelt die Kurzinformation eines Objektes der Navigation und hebt dieses hervor	
+function naviHervor(evt,n)
+{
+//    window.alert ( "naviHervor" );	
+    if ( hervorhebenAktiv == false )
+    {
+  	  var elem=navi.getElementById("text"+n).firstChild.getData();
+		
+  	  navi.getElementById("infoText2").getFirstChild().setData(elem);
+	
+  	  var object=evt.getTarget();
+	  style=object.getAttribute('style');
+	  object.setAttribute("style", "fill:red;stroke:black");
+	  hervorhebenAktiv = true;
+     }
+}
+	
+
+// Setzt die hervorgehobenen Objekte der Nanigation zurück 
+function naviOut(evt)
+{
+//	evt.getTarget().setAttribute("style", style);
+	evt.target().setAttribute("style", style);
+	clearInfo();
+	
+	hervorhebenAkitv = false;
+}
+
+
+// setzt den Ausschintt auf 100% und zeigt so den gesamten Bebauugsplan an
+function resetButton()
+{
+	scaleChoice=6;
+	uu = scaleFactor[scaleChoice];
+	transformationDoc(uu);
+}
+
+
+// erzeugt die Checkboxen in der HTML-Datei
+function gCheckBox()
+{	
+//	window.alert ( "Vor getElementById" )
+	var obj1 = bplan.getElementById("klassen")
+//	window.alert ( "Nach getElementById 1" )
+	
+//	var obj2 = obj1.firstChild
+//	window.alert ( "Nach getElementById 2" )
+	
+//	var obj3 = obj2.nodeValue
+//	window.alert ( "Nach getElementById 3" )
+	
+//	var gObj = obj3.split(' ')
+//	window.alert ( "Nach getElementById 4" )
+	
+	var gObj= bplan.getElementById("klassen").firstChild.nodeValue.split(' ')
+	var gObjAnz=gObj.length
+//	window.alert ( "Nach getElementById" )
+	
+	var fehlerObj = bplan.getElementById("FehlerAnz");
+	if ( fehlerObj != null )
+	{
+//	    var fehler = bplan.getElementById("Fehler").getFirstChild.getData.split(' ');
+		var fehlerAnz = bplan.getElementById("FehlerAnz").getFirstChild.getData;
+//		var fehlerAnz = fehler.length	
+	
+		if ( fehlerAnz > 0 )
+		{
+			var box = "<p align=\"left\" style=\"font-weight:bold\"> <select name=\"Hallo\" onChange=\"fehlerSelect(this)\">";
+			box +="<option value="  + "0" + "\>  </option>";
+			for ( var i=0;i<fehlerAnz;i++)
+			{
+				var j = i+1
+				box +="<option value=\"" + j + "\"\>Fehler " + j + "</option>";
+			}
+			box+="</select><\p> <br> ";
+	
+			document.getElementById('box42').innerHTML =
+			"<p align=\"left\" style=\"font-weight:bold\">Konformitätsfehler: <\p> <br>";
+			document.getElementById('box42').innerHTML += box;	
+		}
+	}	
+	
+	document.getElementById('box42').innerHTML +=
+	"<p align=\"left\" style=\"font-weight:bold\">XPlanGML-Klassen:<\p> <br> " ;
+
+//	window.alert ( "Nach Überschrift" )
+	
+	for (var i=0;i<gObjAnz;i++)
+	{
+		var Neu = "<p align=\"left\"><input type=\"checkbox\" name=\""+gObj[i]+"\" id=\""+gObj[i]+"\" value=\"true\" checked onClick=\" einAus('"+gObj[i]+"') \">"+gObj[i]+"</p>";
+		document.getElementById('box42').innerHTML += Neu;
+	}
+	
+//	window.alert ( "Ende Funktion" )
+}
+
+function fehlerSelect( select )
+{
+	var wert = select.options[select.options.selectedIndex].value;
+	var fehler ;
+	var fehler_1
+	
+	if ( fehlerWertAlt > 0 )
+	{
+	    fehler_1 =  fehlerWertAlt;
+		fehler = "Fehler_" + fehler_1;
+		obj = bplan.getElementById( fehler );
+		if ( obj != null )
+			obj.setAttribute("display","none");
+	}
+	
+	fehler_1 =  wert;
+	fehler = "Fehler_" + fehler_1;
+	obj = bplan.getElementById( fehler );
+	if ( obj != null )
+	{
+		obj.setAttribute("display","inline");
+	}
+	fehlerWertAlt = wert;
+	
+//	window.alert ( "Select " + fehler );
+
+}
+
+
+//Erzeugt die weitere Objektinformation und setzt die in die HTML-Datei ein.
+function objInfo(evt)
+{	
+//	var objectId=evt.getTarget().getAttribute('id');
+	var objectId=evt.target.getAttribute('id');
+	var len = objectId.length;
+	var objectIdA = objectId.substr ( 0, len-5 );
+	
+	var infoDatei = '__ObjectData\\' + objectIdA + '.htm';
+
+    if ( attribute != null ) attribute.close();
+	attribute = window.open( infoDatei ,"", 'width=900,height=700,resizable=yes,menubar=yes,scrollbars=yes,toolbar=yes' );
+
+
+}
+	
+// Löscht die Objektinformation in der HTML-Datei
+function objInfoLoeschen()
+{
+	var Neu =" ";
+	document.getElementById('box').innerHTML = " ";//Neu;
+}
+</script>
+
+<style>
+  div, p {
+  	margin: 0 0 0 0px;
+	padding: 0 0 0 0px;
+  }
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" onLoad="init()">
+<table width="100%" height="100%" border="0">
+  <tr> 
+    <td height="5" valign="middle" align="center" colspan="2" >&nbsp; <embed src="ueberschrift.svg" width="600" height="30" name="ueberschrift"></embed> 
+    </td>
+  </tr>
+  <tr> 
+    <td width="975" >&nbsp;</td>
+    <td align="center" valign="top">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td rowspan="3" align="center" valign="top" width="975" height="650"><embed src="karte.svg" width="1500" height="900" name="plan"></embed></td>
+    <td align="center" valign="middle" width="220" height="100"> <div id="svgplan"> <embed id="svgplan" src="uebersicht.svg" width="220" height="100" name="plankl"> 
+      </div></td>
+  </tr>
+  <tr> 
+    <td align="left" valign="top"   width="220" height="225"> <embed src="navigation.svg" width="220" height="225" name="navi"> 
+      </embed></td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" width="200" height="400"><font size="-1" face="Arial, Helvetica, sans-serif"> 
+      <form name="form1" method="post" action="">
+        <div  id="box42" style="height:400px; overflow: auto;"> </div>
+      </form>
+      </font> </td>
+  </tr>
+  <tr> 
+    <td><div align="center"></div></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

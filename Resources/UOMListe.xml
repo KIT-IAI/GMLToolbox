@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UOMList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/UOMListe.xsd"   >
+    <description>Unit of Measurements from Energy ADE</description>
+    <date>2016-07-26</date>
+    <version>1.0</version>
+ 
+ <UOM name="AMPERE" id="A" quantity="ELECTRIC_CURRENT" sign="A" description="Unit for electric current"/>
+ 
+ <UOM name="CANDELA" id="cd" quantity="LUMINOUS_INTENSITY" sign="cd" description="Unit for luminous intensity"/>
+ 
+ <UOM name="DEGREE_CELSIUS" id="C" quantity="TEMPERATURE" sign="ºC" description="Unit for thermodynamic temperature"/>
+ <UOM name="KELVIN" id="K" quantity="TEMPERATURE" sign="K" offset="273.15" description="Unit for thermodynamic temperature">
+  <altId>k</altId>
+ </UOM>
+ 
+ <UOM name="FARAD" id="F" quantity="ELECTRIC_CAPACITY" sign="F" description="Unit for electric capacity"/>
+ 
+ <UOM name="GRAM" id="g" quantity="MASS" sign="g" factor="1.0E-3" description="Unit for mass"/>
+ <UOM name="KILOGRAM" id="kg" quantity="MASS" sign="kg" factor="1.0" description="Unit for mass"/>
+ <UOM name="NANOGRAM" id="ng" quantity="MASS" sign="ng" factor="1.0E-12" description="Unit for mass"/>
+ 
+ <UOM name="HENRY" id="H" quantity="INDUCTANCE" sign="H" description="Unit for inductance"/>
+ 
+ <UOM name="HERTZ" id="Hz" quantity="FREQUENCY" sign="1/s" description="Unir for frequency"/>
+ 
+ <UOM name="KILOWATT_HOUR" id="kWh" quantity="ENERGY" factor="1.0" sign="kWh" description="Unit for energy">
+  <altId>KwH</altId>
+  <altId>kwh</altId>
+ </UOM> 
+ 
+ <UOM name="WATT_HOUR" id="Wh" quantity="ENERGY" factor="1000.0" sign="Wh" description="Unit for energy">
+  <altId>WH</altId>
+  <altId>wh</altId>
+ </UOM> 
+ 
+ <UOM name="JOULE" id="J" quantity="ENERGY" sign="J" factor="3.6E6" description="Unit for energy">
+  <altId>j</altId>
+ </UOM> 
+ <UOM name="KILOJOULE" id="kJ" quantity="ENERGY" sign="kJ" factor="3.6E3" description="Unit for energy">
+  <altId>kj</altId>
+ </UOM> 
+ 
+ <UOM name="LUMEN" id="lm" quantity="LUMINOUS_FLUX" sign="lm" description="Unit for luminous flux"/>
+ 
+ <UOM name="LUX" id="lx" quantity="ILLUMINANCE" sign="lx" description="Unit for illuminance"/>
+ 
+    <UOM name="METRE" id="m" description="Unit for length" factor="1.0" quantity="LENGTH" sign="m">
+        <altId>urn:adv:uom:m</altId>
+    </UOM>
+ 
+ <UOM name="MILLIMETRE" id="mm" description="Unit for length" factor="1000.0" quantity="LENGTH" sign="mm"/> 
+    
+    <UOM name="SQUARE_METRE" id="m2" description="Unit for area" quantity="AREA" sign="m²">
+        <altId>urn:adv:uom:m2</altId>
+    </UOM>
+    
+    <UOM name="CUBIC_METRE" id="m3" description="Unit for volume" quantity="VOLUME" sign="m³">
+        <altId>urn:adv:uom:m3</altId>
+    </UOM>
+ 
+ <UOM name="MOLE" id="mol" quantity="SUBSTANCE_AMOUNT" sign="mol" description="Unit for amount of substance"/>
+ 
+ <UOM name="NEWTON" id="N" quantity="FORCE" sign="N" description="Unit for force"/>
+ 
+ <UOM name="OHM" id="Ohm" quantity="ELECTRIC_RESISTANCE" sign="Ω" description="Unit for electric resistance"/>
+ 
+ <UOM name="PASCAL" id="Pa" quantity="PRESSURE" sign="Pa" factor="1.0E0" description="Unit for pressure"/>
+ 
+ <UOM name="BAR" id="bar" quantity="PRESSURE" sign="bar" factor="1.0E-5" description="Unit for pressure"/>
+    
+    <UOM name="RADIAN" id="rad" description="Unit for plane angle" factor="1" quantity="ANGLE" sign="rad">
+        <altId>urn:adv:uom:m</altId>
+    </UOM>
+    <UOM name="DEGREE" id="grad" quantity="ANGLE" sign="deg" factor="0.017453292" description="Unit for plane angle">
+      <altId>urn:adv:uom:grad</altId>
+      <altId>deg</altId>   
+    </UOM>
+ 
+ <UOM name="SECOND" id="s" quantity="TIME" sign="sec" factor="3600.0" description="Unit for time"/>
+ 
+ <UOM name="HOUR" id="h" quantity="TIME" sign="hour" factor="1" description="Unit for time"/>
+ 
+ <UOM name="SIEMENS" id="S" quantity="ELECTRIC_CONDUCTANCE" sign="S" description="Unit for electric conductance"/>
+ 
+ <UOM name="VOLT" id="V" quantity="VOLTAGE" sign="V" description="Unit for electric voltage"/>
+ 
+ <UOM name="WATT" id="W" quantity="POWER" sign="W" factor="1000.0" description="Unit for power">
+  <altId>w</altId>
+ </UOM>
+ <UOM name="KILOWATT" id="kW" quantity="POWER" factor="1.0" sign="kW">
+  <altId>kw</altId>
+ </UOM>
+ 
+ <UOM name="WEBER" id="Wb" quantity="MAGNETIC_FLUX" sign="Wb" description="Unit for magnetic flux"/>
+ 
+ <UOM name="DENSITY_KG" id="kg/m3" quantity="DENSITY" sign="kg/m³" factor="1.0" description="Unit for volumetric mass density">
+  <altId>kgm-3</altId>
+ </UOM>
+ 
+ <UOM name="DENSITY_G" id="g/m3" quantity="DENSITY" sign="g/m³" factor="1000.0" description="Unit for volumetric mass density">
+  <altId>gm-3</altId>
+ </UOM>
+ 
+ <UOM name="METER_PER_SECOND" id="m/s" quantity="SPEED" sign="m/sec" description="Unit for speed"/>
+ 
+ <UOM name="THERMAL_CONDUCTIVITY" id="W/K*m" quantity="THERMAL_CONDUCTIVITY" sign="W/(m*K)" description="Unit for thermal conductivity">
+  <altId>wm-1k-1</altId>
+ </UOM>
+ 
+ <UOM name="PERM" id="ng/m2*Pa*s" quantity="PERMEABILITY" sign="ng/(sec*m²*P)" description="Unit for water vapor transmission">
+  <altId>ngs-1m-2p-1</altId>
+ </UOM> 
+ 
+ <UOM name="SPECIFIC_HEAT_KJ" id="kJ/K*kg" quantity="SPECIFIC_HEAT_CAPACITY" sign="kJ/(kg*K)" factor="1.0" description="Unit for specific heat">
+  <altId>kjkg-1k-1</altId>
+ </UOM>
+ 
+ <UOM name="SPECIFIC_HEAT_J" id="J/K*kg" quantity="SPECIFIC_HEAT_CAPACITY" sign="J/(kg*K)" factor="1000.0" description="Unit for specific heat">
+  <altId>jkg-1k-1</altId>
+ </UOM>
+ 
+ <UOM name="WATT_PER_SQUAREMETER" id="W/m2" quantity="POWER_PER_AREA" sign="W/m²" factor="1.0" description="Irradiance">
+  <altId>wm-2</altId>
+ </UOM>
+ 
+ <UOM name="JOULE_PER_SECOND_SQUARE_CM" id="J/(sec*cm2)" quantity="POWER_PER_AREA" sign="J/(sec*cm²)" factor="0.36" description="Irradiance"/>
+ 
+ <UOM name="KILOWATT_HOUR_PER_SQUAREMETER" id="kWh/m2" quantity="ENERGY_PER_AREA" sign="kWh/m²" factor="1.0" description="Energy per area">
+  <altId>kwhm-2</altId>
+ </UOM>
+ 
+ <UOM name="UVALUE" id="W/K*m2" quantity="UVALUE" sign="W/(m²*K)" description="Unit for thermal transmittance">
+  <altId>W/(K*m^2)</altId>
+  <altId>wm-2k-1</altId>
+ </UOM>
+ 
+ <UOM name="RVALUE" id="K*m2/W" quantity="THERMAL_RESISTANCE" sign="(m²K)/W" description="Unit for thermal resistance">
+  <altId>m2kw-1</altId>
+ </UOM>
+  
+ <UOM name="FLOW_RATE" id="m3/s" quantity="FLOW_RATE" sign="m³/sec" factor="1.0" description="Unit for flow rate (qubic metre per second) of a liquid medium">
+  <altId>m3s-1</altId>
+ </UOM>
+ 
+ <UOM name="FLOW_RATE_PER_HOUR" id="m3/h" quantity="FLOW_RATE" sign="m³/h" factor="3600.0" description="Unit for flow rate (qubic metre per hour) of a liquid medium">
+  <altId>m3s-1</altId>
+ </UOM>
+ 
+ <UOM name="SCALE" id="scale" quantity="SCALE" sign="%" factor="1.0" description="Ratio of two measures, value between 0 and 1"/>
+ 
+ <UOM name="PERCENTAGE" id="percent" quantity="SCALE" sign="%" factor="0.01" description="Percentage, value between 0 and 100"/>
+ 
+ <UOM name="CLOUDINESS_8" id="cloud" quantity="CLOUDINESS" sign="eights" factor="1.0" description="Cloudiness, 0 - 8 eighth"/>
+ 
+ <UOM name="CLOUDINESS_10" id="cloud_10" quantity="CLOUDINESS" sign="tenth" factor="1.25" description="Cloudiness, 0 - 10 tenth"/> 
+ 
+ <UOM name="ELECTRIC_CONDUCTIVITY" id="S/m" quantity="ELECTRIC_CONDUCTIVITY" sign="S/m">
+  <altId>Sm-1</altId>  
+ </UOM>
+ <UOM name="DIMENSIOLESS_NUMBER" id="-" quantity="DIMENSIONLESS_NUMBER" sign="-"/>
+ 
+ <UOM name="AIR_CHANGE_RATE_HOUR" id="1/h" quantity="AIR_CHANGE_RATE" sign="1/h"/>
+ 
+</UOMList>
+

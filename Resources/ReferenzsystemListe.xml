@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReferenzsystemListe xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="XSD/ReferenzsystemListe.xsd">
+    <Referenzsystem>
+        <srsNameShort>4326</srsNameShort>
+        <internalCode>4326</internalCode>
+        <srsNameFull>EPSG:4326</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>WGS84</description>
+        <art>Geographische Koordinaten</art>
+    </Referenzsystem>
+    
+    <Referenzsystem>
+        <srsNameShort>4149</srsNameShort>
+        <internalCode>4149</internalCode>
+        <srsNameFull>EPSG:4149</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>CH1903</description>
+        <art>Geographische Koordinaten</art>
+    </Referenzsystem>
+    
+    <Referenzsystem>
+        <srsNameShort>3068</srsNameShort>
+        <internalCode>3068</internalCode>
+        <srsNameFull>EPSG:3068</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>DHDN / Soldner Berlin</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Brandenburg</country>
+    </Referenzsystem>
+    
+    <Referenzsystem>
+        <srsNameShort>21781</srsNameShort>
+        <internalCode>21781</internalCode>
+        <srsNameFull>EPSG:21781</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>CH1903 / LV03</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Schweiz</country>
+    </Referenzsystem>
+    
+    <Referenzsystem>
+        <srsNameShort>CH1903</srsNameShort>
+        <internalCode>21781</internalCode>
+        <srsNameFull>CH1903</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>CH1903 / LV03 (Swiss notation)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Schweiz</country>
+    </Referenzsystem>
+    
+    <Referenzsystem>
+        <srsNameShort>25828</srsNameShort>
+        <internalCode>25828</internalCode>
+        <srsNameFull>EPSG:25828</srsNameFull>
+        <description>ETRS89 / UTM zone 28N</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>
+    
+    <Referenzsystem>
+        <srsNameShort>ETRS89_UTM28</srsNameShort>
+        <internalCode>25828</internalCode>
+        <srsNameFull>urn:adv:crs:ETRS89_UTM28</srsNameFull>
+        <description>ETRS89 / UTM zone 28N (ALKIS notation)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>
+    
+    <Referenzsystem>
+        <srsNameShort>25829</srsNameShort>
+        <internalCode>25829</internalCode>
+        <srsNameFull>EPSG:25829</srsNameFull>
+        <description>ETRS89 / UTM zone 29N</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>ETRS89_UTM29</srsNameShort>
+        <internalCode>25829</internalCode>
+        <srsNameFull>urn:adv:crs:ETRS89_UTM29</srsNameFull>
+        <description>ETRS89 / UTM zone 29N (ALKIS notation)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>    
+    
+    
+    <Referenzsystem>
+        <srsNameShort>25830</srsNameShort>
+        <internalCode>25830</internalCode>
+        <srsNameFull>EPSG:25830</srsNameFull>
+        <description>ETRS89 / UTM zone 30N</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>    
+    
+    
+    <Referenzsystem>
+        <srsNameShort>ETRS89_UTM30</srsNameShort>
+        <internalCode>25830</internalCode>
+        <srsNameFull>urn:adv:crs:ETRS89_UTM30</srsNameFull>
+        <description>ETRS89 / UTM zone 30N (ALKIS notation)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>        
+    
+    <Referenzsystem>
+        <srsNameShort>25831</srsNameShort>
+        <internalCode>25831</internalCode>
+        <srsNameFull>EPSG:25831</srsNameFull>
+        <description>ETRS89 / UTM zone 31N</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>5554</srsNameShort>
+        <internalCode>25831</internalCode>
+        <srsNameFull>EPSG:5554</srsNameFull>
+        <srsDimension>3</srsDimension>
+        <description>ETRS89 / UTM zone 31N + DHHN92 height</description>
+        <art>Kombiniertes Lage- und Höhensystem</art>
+        <country>Deutschland</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>ETRS89_UTM31</srsNameShort>
+        <internalCode>25831</internalCode>
+        <srsNameFull>urn:adv:crs:ETRS89_UTM31</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>ETRS89 / UTM zone 31N (ALKIS notation)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>25832</srsNameShort>
+        <internalCode>25832</internalCode>
+        <srsNameFull>EPSG:25832</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>ETRS89 / UTM zone 32N</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>5555</srsNameShort>
+        <internalCode>25832</internalCode>
+        <srsNameFull>EPSG:5555</srsNameFull>
+        <srsDimension>3</srsDimension>
+        <description>ETRS89 / UTM zone 32NN + DHHN92 height</description>
+        <art>Kombiniertes Lage- und Höhensystem</art>
+        <country>Deutschland</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>ETRS89_UTM32</srsNameShort>
+        <internalCode>25832</internalCode>
+        <srsNameFull>urn:adv:crs:ETRS89_UTM32</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>ETRS89 / UTM zone 32N (ALKIS notation)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>25833</srsNameShort>
+        <internalCode>25833</internalCode>
+        <srsNameFull>EPSG:25833</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>ETRS89 / UTM zone 33N</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>    
+        
+    <Referenzsystem>
+        <srsNameShort>325833</srsNameShort>
+        <internalCode>25833</internalCode>
+        <srsNameFull>EPSG:325833</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>ETRS89 / UTM zone 33N mit Offset 3.000.000 (Brandenburg)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>       
+    
+    <Referenzsystem>
+        <srsNameShort>5556</srsNameShort>
+        <internalCode>25833</internalCode>
+        <srsNameFull>EPSG:5556</srsNameFull>
+        <srsDimension>3</srsDimension>
+        <description>ETRS89 / UTM zone 33N + DHHN92 height</description>
+        <art>Kombiniertes Lage- und Höhensystem</art>
+        <country>Deutschland</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>ETRS89_UTM33</srsNameShort>
+        <internalCode>25833</internalCode>
+        <srsNameFull>urn:adv:crs:ETRS89_UTM33</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>ETRS89 / UTM zone 33N (ALKIS notation)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>25834</srsNameShort>
+        <internalCode>25834</internalCode>
+        <srsNameFull>EPSG:25834</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>ETRS89 / UTM zone 34N</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>ETRS89_UTM34</srsNameShort>
+        <internalCode>25834</internalCode>
+        <srsNameFull>urn:adv:crs:ETRS89_UTM34</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>ETRS89 / UTM zone 34N (ALKIS notation)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>25835</srsNameShort>
+        <internalCode>25835</internalCode>
+        <srsNameFull>EPSG:25835</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>ETRS89 / UTM zone 35N</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>ETRS89_UTM35</srsNameShort>
+        <internalCode>25835</internalCode>
+        <srsNameFull>urn:adv:crs:ETRS89_UTM35</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>ETRS89 / UTM zone 35N (ALKIS notation)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>25836</srsNameShort>
+        <internalCode>25836</internalCode>
+        <srsNameFull>EPSG:25836</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>ETRS89 / UTM zone 36N</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>ETRS89_UTM36</srsNameShort>
+        <internalCode>25836</internalCode>
+        <srsNameFull>urn:adv:crs:ETRS89_UTM36</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>ETRS89 / UTM zone 36N (ALKIS notation)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>25837</srsNameShort>
+        <internalCode>25837</internalCode>
+        <srsNameFull>EPSG:25837</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>ETRS89 / UTM zone 37N</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>ETRS89_UTM37</srsNameShort>
+        <internalCode>25837</internalCode>
+        <srsNameFull>urn:adv:crs:ETRS89_UTM37</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>ETRS89 / UTM zone 37N (ALKIS notation)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>25838</srsNameShort>
+        <internalCode>25838</internalCode>
+        <srsNameFull>EPSG:25838</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>ETRS89 / UTM zone 38N</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>ETRS89_UTM38</srsNameShort>
+        <internalCode>25838</internalCode>
+        <srsNameFull>urn:adv:crs:ETRS89_UTM38</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>ETRS89 / UTM zone 38N (ALKIS notation)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Welt</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>28992</srsNameShort>
+        <internalCode>28992</internalCode>
+        <srsNameFull>EPSG:28992</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>Amersfoort / RD New</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Holland</country>
+    </Referenzsystem>
+    
+    <Referenzsystem>
+        <srsNameShort>7415</srsNameShort>
+        <internalCode>28992</internalCode>
+        <srsNameFull>EPSG:7415</srsNameFull>
+        <srsDimension>3</srsDimension>
+        <description>Amersfoort / RD New + NAP height</description>
+        <art>Kombiniertes Lage- und Höhensystem</art>
+        <country>Holland</country>
+    </Referenzsystem>
+    
+    <Referenzsystem>
+        <srsNameShort>31466</srsNameShort>
+        <internalCode>31466</internalCode>
+        <srsNameFull>EPSG:31466</srsNameFull>
+        <srsDimension>2</srsDimension>
+        <description>DHDN / 3-degree Gauss-Kruger zone 2 (Hochwert,Rechtswert)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Deutschland</country>
+    </Referenzsystem>
+    
+    <Referenzsystem>
+        <srsNameShort>5676</srsNameShort>
+        <internalCode>5676</internalCode>
+        <srsNameFull>EPSG:5676</srsNameFull>
+        <description>DHDN / 3-degree Gauss-Kruger zone 2 (Rechtswert, Hochwert)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Deutschland</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>DE_DHDN_3GK2</srsNameShort>
+        <internalCode>5676</internalCode>
+        <srsNameFull>urn:adv:crs:>DE_DHDN_3GK2</srsNameFull>
+        <description>DHDN / 3-degree Gauss-Kruger zone 2 (ALKIS notation)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Deutschland</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>DE_DHDN_3GK2*DE_DHHN92_NH</srsNameShort>
+        <internalCode>5676</internalCode>
+        <srsNameFull>urn:adv:crs:DE_DHDN_3GK2*DE_DHHN92_NH</srsNameFull>
+        <srsDimension>3</srsDimension>
+        <description>DHDN / 3-degree Gauss-Kruger zone 2 (ALKIS notation) mit Höhe</description>
+        <art>Kombiniertes Lage- und Höhensystem</art>
+        <country>Deutschland</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>31467</srsNameShort>
+        <internalCode>31467</internalCode>
+        <srsNameFull>EPSG:31467</srsNameFull>
+        <description>DHDN / 3-degree Gauss-Kruger zone 3 (Hochwert, Rechtswert)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Deutschland</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>5677</srsNameShort>
+        <internalCode>5677</internalCode>
+        <srsNameFull>EPSG:5677</srsNameFull>
+        <description>DHDN / 3-degree Gauss-Kruger zone 3 (Rechtswert, Hochwert)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Deutschland</country>
+    </Referenzsystem>        
+    
+    <Referenzsystem>
+        <srsNameShort>DE_DHDN_3GK3</srsNameShort>
+        <internalCode>5677</internalCode>
+        <srsNameFull>urn:adv:crs:DE_DHDN_3GK2</srsNameFull>
+        <description>DHDN / 3-degree Gauss-Kruger zone 3 (ALKIS notation)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Deutschland</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>DE_DHDN_3GK3*DE_DHHN92_NH</srsNameShort>
+        <internalCode>5677</internalCode>
+        <srsNameFull>urn:adv:crs:DE_DHDN_3GK3*DE_DHHN92_NH</srsNameFull>
+        <srsDimension>3</srsDimension>
+        <description>DHDN / 3-degree Gauss-Kruger zone 3 (ALKIS notation) mit Höhe</description>
+        <art>Kombiniertes Lage- und Höhensystem</art>
+        <country>Deutschland</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>31468</srsNameShort>
+        <internalCode>31468</internalCode>
+        <srsNameFull>EPSG:31468</srsNameFull>
+        <description>DHDN / 3-degree Gauss-Kruger zone 4 (Hochwert, Rechtswert)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Deutschland</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>5678</srsNameShort>
+        <internalCode>5678</internalCode>
+        <srsNameFull>EPSG:5678</srsNameFull>
+        <description>DHDN / 3-degree Gauss-Kruger zone 4 (Rechtswert, Hochwert)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Deutschland</country>
+    </Referenzsystem>  
+    
+    <Referenzsystem>
+        <srsNameShort>DE_DHDN_3GK4</srsNameShort>
+        <internalCode>5678</internalCode>
+        <srsNameFull>urn:adv:crs:DE_DHDN_3GK4</srsNameFull>
+        <description>DHDN / 3-degree Gauss-Kruger zone 4 (ALKIS notation)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Deutschland</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>DE_DHDN_3GK4*DE_DHHN92_NH</srsNameShort>
+        <internalCode>5678</internalCode>
+        <srsNameFull>urn:adv:crs:DE_DHDN_3GK4*DE_DHHN92_NH</srsNameFull>
+        <srsDimension>3</srsDimension>
+        <description>DHDN / 3-degree Gauss-Kruger zone 4 (ALKIS notation) mit Höhe</description>
+        <art>Kombiniertes Lage- und Höhensystem</art>
+        <country>Deutschland</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>31469</srsNameShort>
+        <internalCode>31469</internalCode>
+        <srsNameFull>EPSG:31469</srsNameFull>
+        <description>DHDN / 3-degree Gauss-Kruger zone 5 (Hochwert, Rechtswert)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Deutschland</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>5679</srsNameShort>
+        <internalCode>5679</internalCode>
+        <srsNameFull>EPSG:5679</srsNameFull>
+        <description>DHDN / 3-degree Gauss-Kruger zone 5 (Rechtswert, Hochwert)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Deutschland</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>DE_DHDN_3GK5</srsNameShort>
+        <internalCode>5679</internalCode>
+        <srsNameFull>urn:adv:crs:DE_DHDN_3GK5</srsNameFull>
+        <description>DHDN / 3-degree Gauss-Kruger zone 5 (ALKIS notation)</description>
+        <art>Projizierte Koordinaten</art>
+        <country>Deutschland</country>
+    </Referenzsystem>        
+    
+    <Referenzsystem>
+        <srsNameShort>DE_DHDN_3GK5*DE_DHHN92_NH</srsNameShort>
+        <internalCode>5679</internalCode>
+        <srsNameFull>urn:adv:crs:DE_DHDN_3GK5*DE_DHHN92_NH</srsNameFull>
+        <srsDimension>3</srsDimension>
+        <description>DHDN / 3-degree Gauss-Kruger zone 5 (ALKIS notation) mit Höhe</description>
+        <art>Kombiniertes Lage- und Höhensystem</art>
+        <country>Deutschland</country>
+    </Referenzsystem>       
+    
+    <Referenzsystem>
+        <srsNameShort>20499</srsNameShort>
+        <internalCode>20499</internalCode>
+        <srsNameFull>urn:ogc:def:crs:EPSG::20499</srsNameFull>
+        <description> Ain el Abd / Bahrain Grid</description>
+        <country>Bahrain</country>
+    </Referenzsystem>
+    
+    <Referenzsystem>
+        <srsNameShort>3946</srsNameShort>
+        <internalCode>3946</internalCode>
+        <srsNameFull>EPSG:3946</srsNameFull>
+        <description>France - mainland</description>
+        <country>France</country>
+    </Referenzsystem>    
+    
+    <Referenzsystem>
+        <srsNameShort>2398</srsNameShort>
+        <internalCode>2398</internalCode>
+        <srsNameFull>EPSG:2398</srsNameFull>
+        <description>Pulkovo 1942(83) / 3-degree Gauss-Kruger zone 4</description>
+        <country>Germany</country>
+    </Referenzsystem>      
+    
+</ReferenzsystemListe>
