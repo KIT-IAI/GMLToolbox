@@ -43,15 +43,32 @@ submodule repositories and a wrapping superprojekt repository.
     |-- Diagramm        (URL ../GMLToolbox-tsdiagram.git)
 ```
 
-Also due to *historical reasons*(TM) the names of the repositories do not match the names of the submodules, and thus the submodule paths and the submodule URLs are different from the submodule names.
+Also due to *historical reasons*(TM) the names of the repositories do not match
+the names of the submodules, and thus the submodule paths and the submodule URLs
+are different from the submodule names.
 
-When you are cloning the superproject repository (this repo), the submodules are not cloned immediatly. You have do a `git submodule init` and `git submodule update` to have a complete clone of the project.
+When you are cloning the superproject repository (this repo), the submodules
+are not cloned immediatly. You have do a `git submodule init` and `git submodule update`
+to have a complete clone of the project.
 
 ## Toolchain
-Currently the toolbox is build using the ''Visual Studio 2017 (v141)'' platform toolset. The application is targeted to the ''Windows SDK 8.1'' and the ''.NET Framework v4.0''
+Currently the toolbox is build using the ''Visual Studio 2022 (v143)'' platform toolset.
+The application is targeted to the ''Windows SDK 10'' and the ''.NET Framework v4.7.2''
 
-The main entry point for loading the project into Visual Studio is the solution file `GML-ToolboxApp.sln` located in the superproject folder. In the solution there are different configurations. Please start with either `Debug x64` or `Release x64`. These are the configurations that should be prefered. Other configurations might not represent the latest development state and are subject to be removed in the future.
+The main entry point for loading the project into Visual Studio is the solution file
+`GML-ToolboxApp.sln` located in the superproject folder. In the solution there are
+different configurations. Please start with either `Debug x64` or `Release x64`.
+These are the configurations that should be prefered. Other configurations might not
+represent the latest development state and are subject to be removed in the future.
 
 Select the project *GML-Toolbox* as the start project for the solution.
 
-When the build is completed, the executable should be located somewhere in `x64\Debug\GML-Toolbox.exe` resp. `x64\Release\GML-Toolbox.exe`.
+When the build is completed, the executable should be located somewhere in `x64\Debug\GML-Toolbox.exe`
+resp. `x64\Release\GML-Toolbox.exe`.
+
+# Release Assets
+The asset for release is build from the content of the `Resources` folder and the binary files
+`GML-Toolbox.exe` and `Diagramm.dll`. (Currently the content of the folders `batik-1.7`,
+`GMLSchemata` and `XSD` are not contained in the repository, since the content of
+these folders are constructed from public sources. However, those public resources are not
+yet linked correctly.)
